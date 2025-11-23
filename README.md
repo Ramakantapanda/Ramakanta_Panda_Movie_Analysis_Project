@@ -187,8 +187,111 @@ Verify:
 
 
 ---
+ 15.1️⃣ Correctness — “Does the pipeline work as expected?”
 
-## 15. Author
+What you should say:
+
+“My ETL pipeline works end-to-end.
+It reads the input movie list, sends requests to the OMDb API, enriches the data with fields like Director, Genre, IMDb Rating, and Box Office, and finally generates an enriched CSV and loads it into SQLite for analysis.”
+
+Proof points:
+
+movies.csv → omdb_enrich.py → movies_enriched.csv → SQLite
+
+SQL queries run successfully
+
+The pipeline handles missing data and invalid API responses
+
+2️⃣ Code Quality — “Is the code clean, readable, and well-organized?”
+
+What you should say:
+
+“I followed clean coding practices — modular functions, proper variable names, comments, and error handling.
+The code is structured into logical parts: ETL script, schema file, and queries file.”
+
+What makes your code good:
+
+Separation of concerns
+
+Helpful comments
+
+Error handling with try/except
+
+A requirements.txt file
+
+Functions instead of writing all logic in main
+
+3️⃣ Data Modeling — “Is the database schema logical and efficient?”
+
+What you should say:
+
+“I designed a simple but scalable schema.
+The movies_enriched table stores key fields from OMDb.
+If extended, I can normalize genres and create relationships using movie_genres.”
+
+Why your design is good:
+
+Avoids duplicate data
+
+Easy to query
+
+Can be scaled to many-to-many genre relationships
+
+Supports analytics (ratings, box office, top directors, etc.)
+
+4️⃣ Problem Solving — “How did you handle issues like missing data or API errors?”
+
+What you should say:
+
+“I added error handling to manage missing data and failed API calls.”
+
+Examples:
+
+If the API returns N/A, I substitute a default value.
+
+If the movie is not found, I skip it but keep a log.
+
+Added sleep() to avoid rate limiting.
+
+Used try/except around requests.get() to avoid pipeline crashes.
+
+5️⃣ Documentation — “Is the README.md clear and complete?”
+
+What you should say:
+
+“My README includes:
+
+A project overview
+
+Architecture diagram
+
+Environment setup instructions
+
+How to run the ETL
+
+How to run SQL queries
+
+Challenges and future improvements”
+
+Why it matters:
+
+Recruiters expect clarity and professionalism — your README achieves that.
+
+6️⃣ Communication — “How clearly do you explain your decisions?”
+
+What you should say:
+
+“I explain the pipeline step-by-step, with reasoning behind each decision — why this data model, why SQLite, how error handling works, and how the solution can scale.”
+
+Your strengths here:
+
+You explain the flow clearly (Input → API → Transform → Database → Insights)
+
+You show understanding of design choices
+
+Confidently break down the architecture
+
+## 16. Author
 
 *Name:* Ramakanta Panda 
 *Year:* 2024 
